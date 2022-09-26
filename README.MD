@@ -2,11 +2,14 @@
 This was tested in AWS EKS using version 1.21
 
 # Services 
-Tempo - distrubuted tracing
-Loki - log monitoring
-Promtail - log agent
-Prometheus - metric monitoring
-Grafana - Web ui
+|     Service           |Description
+|----------------|-------------------------------|-----------------------------|
+|Tempo | distrubuted tracing
+|Loki | log monitoring
+|Promtail | log agent
+|Prometheus |  metric monitoring
+|Grafana | Web ui
+
 # Prerequisites
 ```
 kubectl
@@ -53,7 +56,7 @@ kubectl -n grafana port-forward service/grafana-prome 3000:80 --address='0.0.0.0
 
 ## For Ingress
 Currently tested using nginx as ingress-controller
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.1/deploy/static/provider/aws/deploy.yaml
+> kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.1/deploy/static/provider/aws/deploy.yaml
 
 doc: https://kubernetes.github.io/ingress-nginx/deploy/#aws
 ## Version eks used: 1.21
