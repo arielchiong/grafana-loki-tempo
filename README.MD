@@ -1,3 +1,4 @@
+
 # Getting Started
 This was tested in AWS EKS using version 1.21
 
@@ -37,6 +38,9 @@ helm install tempo grafana/tempo
 ```
 ## Loki
 Modify loki-values.yaml
+```
+helm show values grafana/loki-stack > helm-loki-values.yaml #Optional
+```
 ```
 loki:
   enabled: true
@@ -78,7 +82,6 @@ loki:
     jsonData: {}
     uid: ""
 
-
 promtail:
   enabled: true
   config:
@@ -88,8 +91,8 @@ promtail:
       - url: http://{{ .Release.Name }}:3100/loki/api/v1/push
 
 ```
+### Deploy 
 ```
-helm show values grafana/loki-stack > helm-loki-values.yaml #Optional
 helm install loki grafana/loki-stack --values loki-values.yaml -n grafana
 ```
 ## Grafana Prometheus
@@ -131,7 +134,7 @@ helm show values prometheus-community/kube-prometheus-stack > grafana-values.yam
       url: https://{{ printf "%s-prometheus.svc" .Release.Name }}:9090
       version: 1
 ```
-
+### Deploy 
 ```
 helm install grafana-prome prometheus-community/kube-prometheus-stack -f grafana-values.yaml -n grafana
 ```
