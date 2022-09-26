@@ -34,7 +34,7 @@ helm repo update
 
 ## Tempo
 ```
-helm install tempo grafana/tempo
+helm install tempo grafana/tempo -n grafana
 ```
 ## Loki
 Modify loki-values.yaml
