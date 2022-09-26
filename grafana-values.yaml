@@ -829,7 +829,7 @@ grafana:
   ## Configure additional grafana datasources (passed through tpl)
   ## ref: http://docs.grafana.org/administration/provisioning/#datasources
   # additionalDataSources: []
-  additionalDataSources:
+  additionalDataSources: # This will
     - name: Loki
       type: loki
       url: http://loki.grafana.svc.cluster.local:3100
@@ -2613,8 +2613,6 @@ prometheus:
     ## The remote_write spec configuration for Prometheus.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#remotewritespec
     # remoteWrite: []
-    remoteWrite:
-      - url: http://cortex.grafana.svc.cluster.local:80/api/prom/push    
     # - url: http://remote1/push
     ## additionalRemoteWrite is appended to remoteWrite
     additionalRemoteWrite: []
