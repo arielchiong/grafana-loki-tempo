@@ -2,13 +2,13 @@
 This was tested in AWS EKS using version 1.21
 
 # Services 
-|     Service           |Description
-|----------------|-------------------------------|-----------------------------|
-|Tempo | distrubuted tracing
-|Loki | log monitoring
-|Promtail | log agent
-|Prometheus |  metric monitoring
-|Grafana | Web ui
+| Service        | Description
+| ------------- |:-------------:
+| Tempo         | distrubuted tracing
+| Loki          | log monitoring
+| Promtail      | log agent
+| Prometheus    |  metric monitoring
+| Grafana       | Web ui
 
 # Prerequisites
 ```
