@@ -94,8 +94,12 @@ helm install loki grafana/loki-stack --values loki-values.yaml -n grafana
 ```
 ## Grafana Prometheus
 Modify grafana-values.yaml
+Append the below config in line 831
 ```
-  additionalDataSources: # This will
+helm show values prometheus-community/kube-prometheus-stack > grafana-values.yaml
+```
+```
+  additionalDataSources: 
     - name: Loki
       type: loki
       url: http://loki.grafana.svc.cluster.local:3100 # Change here
