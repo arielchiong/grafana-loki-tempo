@@ -1,7 +1,7 @@
 
 
 # Getting Started
-This was tested in AWS EKS using version 1.21
+This was tested in AWS EKS using version 1.21 and 1.23
 
 # Services 
 | Service        | Description
@@ -162,7 +162,7 @@ Currently tested using nginx as ingress-controller
 > kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.3.1/deploy/static/provider/aws/deploy.yaml
 
 doc: https://kubernetes.github.io/ingress-nginx/deploy/#aws
-## Version eks used: 1.21
+## Version eks used: 1.21 and 1.23
 ```
 kubectl apply -f grafana-ingress.yaml
 ```
