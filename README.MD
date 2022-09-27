@@ -99,9 +99,9 @@ promtail:
 helm install loki grafana/loki-stack --values loki-values.yaml -n grafana
 ```
 ## Grafana Prometheus
-$\colorbox{red}{Reminder before deploying Grafana Prometheus make sure Loki and Tempo statefulsets are up and running}$ \n
-Modify grafana-values.yaml \n
-Append the below config in line 831
+$\colorbox{red}{Reminder before deploying Grafana Prometheus make sure Loki and Tempo statefulsets are up and running}$.\ 
+Modify grafana-values.yaml\
+Append the below config in line 831\
 ```
 helm show values prometheus-community/kube-prometheus-stack > grafana-values.yaml
 ```
