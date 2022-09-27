@@ -61,8 +61,8 @@ loki:
             prefix: index_
     storage_config:
       aws:
-        s3: s3://region/bucket-name #Change Region and Bucket Name
-        region: region # Change Region
+        s3: s3://region/bucket-name                             # Change Region and Bucket Name
+        region: region                                          # Change Region
       boltdb_shipper:
         active_index_directory: /data/loki/boltdb-shipper-active
         cache_location: /data/loki/boltdb-shipper-cache
