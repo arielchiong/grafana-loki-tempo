@@ -1,4 +1,5 @@
 
+
 # Getting Started
 This was tested in AWS EKS using version 1.21
 
@@ -96,6 +97,11 @@ promtail:
 helm install loki grafana/loki-stack --values loki-values.yaml -n grafana
 ```
 ## Grafana Prometheus
+```
+```
+$\colorbox{red}{Reminder before deploying Grafana Prometheus make sure Loki and Tempo statefulsets are up and running}$
+```
+```
 Modify grafana-values.yaml
 Append the below config in line 831
 ```
@@ -105,7 +111,7 @@ helm show values prometheus-community/kube-prometheus-stack > grafana-values.yam
   additionalDataSources: 
     - name: Loki
       type: loki
-      url: http://loki.grafana.svc.cluster.local:3100 # Change here
+      url: http://loki.grafana.svc.cluster.local:3100 					# Change URL Here
       access: proxy
       jsonData:
           derivedFields:
@@ -118,7 +124,7 @@ helm show values prometheus-community/kube-prometheus-stack > grafana-values.yam
     - name: Tempo
       type: tempo
       uid: tempo
-      url: http://tempo.grafana.svc.cluster.local:3100 # Change here
+      url: http://tempo.grafana.svc.cluster.local:3100 					# Change URL here
       access: proxy
       version: 1
     - name: prometheus-sample
@@ -137,6 +143,11 @@ helm show values prometheus-community/kube-prometheus-stack > grafana-values.yam
 ### Deploy 
 ```
 helm install grafana-prome prometheus-community/kube-prometheus-stack -f grafana-values.yaml -n grafana
+```
+### Default username and password for Grafana
+```
+Username: admin 
+Password: prom-operator
 ```
 ## Expose without ingress
 ### Expose to localmachine
