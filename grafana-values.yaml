@@ -848,18 +848,6 @@ grafana:
       url: http://tempo.grafana.svc.cluster.local:3100
       access: proxy
       version: 1
-    - name: prometheus-sample
-      access: proxy
-      basicAuth: true
-      basicAuthPassword: pass
-      basicAuthUser: daco
-      editable: false
-      jsonData:
-          tlsSkipVerify: true
-      orgId: 1
-      type: prometheus
-      url: https://{{ printf "%s-prometheus.svc" .Release.Name }}:9090
-      version: 1
 
   ## Passed to grafana subchart and used by servicemonitor below
   ##
