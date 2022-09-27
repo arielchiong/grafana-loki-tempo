@@ -40,7 +40,7 @@ helm install tempo grafana/tempo -n grafana
 ## Loki
 Modify loki-values.yaml
 This Loki storage cofiguration is set to AWS S3.
-Other cloud backend storage providers configuration can be found here: > https://grafana.com/docs/loki/latest/operations/storage/
+Other cloud backend storage providers configuration can be found here: https://grafana.com/docs/loki/latest/operations/storage/
 ```
 helm show values grafana/loki-stack > helm-loki-values.yaml #Optional
 ```
@@ -99,8 +99,8 @@ promtail:
 helm install loki grafana/loki-stack --values loki-values.yaml -n grafana
 ```
 ## Grafana Prometheus
-$\colorbox{red}{Reminder before deploying Grafana Prometheus make sure Loki and Tempo statefulsets are up and running}$
-Modify grafana-values.yaml
+$\colorbox{red}{Reminder before deploying Grafana Prometheus make sure Loki and Tempo statefulsets are up and running}$ \n
+Modify grafana-values.yaml \n
 Append the below config in line 831
 ```
 helm show values prometheus-community/kube-prometheus-stack > grafana-values.yaml
