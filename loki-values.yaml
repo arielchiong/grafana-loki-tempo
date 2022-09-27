@@ -1,10 +1,7 @@
 loki:
-  serviceAccount:
-    create: false
-
+  enabled: true
   isDefault: true
   url: http://{{(include "loki.serviceName" .)}}:{{ .Values.loki.service.port }}
-
   config:
     schema_config:
       configs:
@@ -17,8 +14,8 @@ loki:
             prefix: index_
     storage_config:
       aws:
-        s3: s3://region/bucket-name
-        region: region
+        s3: s3://region/bucket-name               #Change AWS region and bucketname here
+        region: region                            #Change AWS region
       boltdb_shipper:
         active_index_directory: /data/loki/boltdb-shipper-active
         cache_location: /data/loki/boltdb-shipper-cache
@@ -26,7 +23,6 @@ loki:
         shared_store: s3
       filesystem:
         directory: /data/loki/chunks
-  
   readinessProbe:
     httpGet:
       path: /ready
@@ -37,19 +33,13 @@ loki:
       path: /ready
       port: http-metrics
     initialDelaySeconds: 45
-  datasources:
-    - name: Loki
-      type: loki
-      url: http://loki:3100
-      jsonData:
-        maxLines: 1000
-        derivedFields:
-          - matcherRegex: "traceID=(\\w+)"
-            name: traceID
-            url: '$${__value.raw}'
-      uid: my_jaeger_uid   
+  datasource:
+    jsonData: {}
+    uid: ""
+
 
 promtail:
+  enabled: true
   config:
     logLevel: info
     serverPort: 3101
